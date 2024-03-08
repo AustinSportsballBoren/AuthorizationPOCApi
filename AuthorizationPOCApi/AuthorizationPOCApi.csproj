@@ -20,5 +20,10 @@
 		<PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
 	</ItemGroup>
+	<ItemGroup>
+		<Reference Include="OpenFGALibrary.dll">
+		  <HintPath>OpenFGALibrary.dll</HintPath>
+		</Reference>
+	   </ItemGroup>
 
 </Project>
