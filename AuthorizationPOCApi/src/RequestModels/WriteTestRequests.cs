@@ -1,8 +1,8 @@
 public class WriteTestRequest
 {
-    public string? NumberOfCabinets { get; set; }
-    public string? EnvelopesPerCabinet { get; set; }
-    public string? UsersPerCabinet { get; set; }
-    public string? RelationsPerEnvelope { get; set; }
+    public int? NumberOfCabinets { get; set; }
+    public int? EnvelopesPerCabinet { get; set; }
+    public int? UsersPerCabinet { get; set; }
+    public int? RelationsPerEnvelope { get; set; }
     
 }

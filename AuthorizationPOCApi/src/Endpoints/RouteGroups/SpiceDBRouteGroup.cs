@@ -4,7 +4,7 @@ public static class SpiceDBRouteGroups
     {
         var spiceDBEndpoints = new SpiceDBEndpoints();
 
-        group.MapPost("test", spiceDBEndpoints.WriteTest);
+        group.MapPost("write-test", spiceDBEndpoints.WriteTest);
 
         return group;
     }

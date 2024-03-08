@@ -4,6 +4,7 @@ using System.Text.Json.Nodes;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using HealthChecks;
+using OpenFGA;
 
 namespace Initialization;
 
@@ -28,6 +29,8 @@ internal class Service
     /// <param name="healthChecks">Called to add health checks</param>
     internal static void ConfigureServices(HostBuilderContext hbContext, IServiceCollection services, IHealthChecksBuilder? healthChecks)
     {
+        OpenFGA.OpenFGA openFGA = new OpenFGA.OpenFGA("http://localhost:8080", "");
+        services.AddSingleton<IOpenFGA>(openFGA);
     }
 
     /// <summary>
