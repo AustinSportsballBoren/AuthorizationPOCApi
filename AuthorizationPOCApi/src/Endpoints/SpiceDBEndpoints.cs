@@ -1,14 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 
-public class SpiceDBWriteTestRequest
-{
-    public string? Test { get; set; }
-}
-
 public class SpiceDBEndpoints {
 
-    public void WriteTest([FromBody] SpiceDBWriteTestRequest openFGAWriteTestRequest)
+    public IResult WriteTest([FromBody] WriteTestRequest openFGAWriteTestRequest)
     {
-        Console.WriteLine(openFGAWriteTestRequest.Test);
+        return Results.Ok(openFGAWriteTestRequest.NumberOfCabinets);
     }
 }
