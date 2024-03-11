@@ -25,6 +25,9 @@
 		<Reference Include="OpenFGALibrary.dll">
 		  <HintPath>OpenFGALibrary.dll</HintPath>
 		</Reference>
-	   </ItemGroup>
+		<Reference Include="spicedb.dll">
+		  <HintPath>spicedb.dll</HintPath>
+		</Reference>
+	</ItemGroup>
 
 </Project>
