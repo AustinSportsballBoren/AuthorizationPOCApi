@@ -1,10 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
+using OpenFGA;
 
 public class OpenFGAEndpoints {
 
     public IResult WriteTest([FromServices] IOpenFGAService openFGAService, [FromBody] WriteTestRequest openFGAWriteTestRequest)
     {
-        openFGAService.WriteTest(openFGAWriteTestRequest);
-        return Results.Ok();
+        var ids = openFGAService.WriteTest(openFGAWriteTestRequest);
+        return Results.Ok(ids);
     }
 }

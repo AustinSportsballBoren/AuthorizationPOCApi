@@ -29,7 +29,7 @@ internal class Service
     /// <param name="healthChecks">Called to add health checks</param>
     internal static void ConfigureServices(HostBuilderContext hbContext, IServiceCollection services, IHealthChecksBuilder? healthChecks)
     {
-        OpenFGA.OpenFGA openFGA = new OpenFGA.OpenFGA("http://localhost:8080", Config.GetOpenFGAModelString());
+        OpenFGA.OpenFGA openFGA = new OpenFGA.OpenFGA(Config.GetOpenFGAModelString());
         services.AddSingleton<IOpenFGA>(openFGA);
         services.AddSingleton<IOpenFGAService, OpenFGAService>();
     }

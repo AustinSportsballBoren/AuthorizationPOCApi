@@ -3,7 +3,7 @@ using OpenFGA;
 
 public interface IOpenFGAService
 {
-    void WriteTest(WriteTestRequest openFGAWriteTestRequest);
+    OpenFGAIds WriteTest(WriteTestRequest openFGAWriteTestRequest);
 }
 
 public class OpenFGAService : IOpenFGAService
@@ -23,12 +23,12 @@ public class OpenFGAService : IOpenFGAService
         _logger = logger;
     }
 
-    public void WriteTest(WriteTestRequest openFGAWriteTestRequest)
+    public OpenFGAIds WriteTest(WriteTestRequest openFGAWriteTestRequest)
     {
-        PopulateDBMultiThreadedOptimized(openFGAWriteTestRequest);
+        return PopulateDBMultiThreadedOptimized(openFGAWriteTestRequest);
     }
 
-    private void PopulateDBMultiThreadedOptimized(WriteTestRequest writeTestRequest, CabinetRelation cabRelation = CabinetRelation.Member)
+    private OpenFGAIds PopulateDBMultiThreadedOptimized(WriteTestRequest writeTestRequest, CabinetRelation cabRelation = CabinetRelation.Member)
     {
         for (int i = 0; i < writeTestRequest.NumberOfCabinets; i++)
         {
@@ -52,6 +52,8 @@ public class OpenFGAService : IOpenFGAService
 
             AddRelationshipsToUsersInEnvelopes(cabinet, userIds, envelopeIds, (int)writeTestRequest.RelationsPerEnvelope!);
         }
+
+        return _openFga.ids;
     }
 
     private void AddRelationshipsToUsersInCabinets(string cabinetName, ConcurrentBag<string> userIds, CabinetRelation cabinetPermission)
