@@ -30,7 +30,6 @@ builder.Logging.AddSerilog(logger);
 builder.Host.UseSerilog(logger);
 
 Log.Logger = logger;
-builder.WebHost.UseUrls("http://*:8080");
 
 // Add services to the container.
 builder.Host.ConfigureServices((_, services) =>

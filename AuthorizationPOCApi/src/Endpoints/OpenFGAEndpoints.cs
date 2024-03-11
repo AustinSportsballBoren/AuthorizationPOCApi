@@ -2,8 +2,9 @@ using Microsoft.AspNetCore.Mvc;
 
 public class OpenFGAEndpoints {
 
-    public IResult WriteTest([FromBody] WriteTestRequest openFGAWriteTestRequest)
+    public IResult WriteTest([FromServices] IOpenFGAService openFGAService, [FromBody] WriteTestRequest openFGAWriteTestRequest)
     {
-        return Results.Ok(openFGAWriteTestRequest.NumberOfCabinets);
+        openFGAService.WriteTest(openFGAWriteTestRequest);
+        return Results.Ok();
     }
 }
